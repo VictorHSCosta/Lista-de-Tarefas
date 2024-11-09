@@ -18,3 +18,11 @@ model Post {
 
     @@index([name])
 }
+
+model Tarefa{
+    id Int @id @default(autoincrement())
+    name String @unique
+    preco Float
+    data DateTime
+    order Int @unique
+}
