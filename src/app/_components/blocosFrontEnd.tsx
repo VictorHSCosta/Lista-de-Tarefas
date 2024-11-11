@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import router from "next/router";
 import { useEffect, useState } from "react";
+import Modal from "~/app/_components/modal";
 
 export function BlocosFrontEnd() {
   interface Tarefa {
@@ -14,6 +14,8 @@ export function BlocosFrontEnd() {
   }
 
   const [tarefas, setTarefas] = useState<Tarefa[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [tarefaAtual, setTarefaAtual] = useState<Tarefa | null>(null);
 
   async function fetchTarefas() {
     try {
@@ -77,8 +79,6 @@ export function BlocosFrontEnd() {
           console.log("Item anterior:", itemAnterior);
 
           if (itemAnterior) {
-            const ordemTemp = itemAtual.ordem;
-
             // Atualizar o item atual usando PUT
             await fetch(`/api/tarefas/`, {
               method: "PUT",
@@ -222,6 +222,46 @@ export function BlocosFrontEnd() {
     }
   };
 
+  const handleRedirecionar = (tarefa: Tarefa) => {
+    setTarefaAtual(tarefa);
+    setIsModalOpen(true);
+  };
+
+  const handleEditChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setTarefaAtual((prev) => (prev ? { ...prev, [name]: value } : null));
+  };
+
+  const handleSubmit = async () => {
+    if (tarefaAtual) {
+      try {
+        const response = await fetch(`/api/tarefas/`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: tarefaAtual.id,
+            name: tarefaAtual.nome,
+            preco: tarefaAtual.custo,
+            data: tarefaAtual.dataLimite,
+            order: tarefaAtual.ordem,
+          }),
+        });
+
+        if (response.ok) {
+          fetchTarefas();
+          setIsModalOpen(false);
+        } else {
+          console.error("Erro ao atualizar tarefa");
+          alert("O Nome das tarefas nao podem ser iguais");
+        }
+      } catch (error) {
+        console.error("Erro ao atualizar tarefa:", error);
+      }
+    }
+  };
+
   return (
     <div>
       <ul className="">
@@ -254,7 +294,7 @@ export function BlocosFrontEnd() {
               </button>
               <button
                 className="rounded-md bg-green-500 p-1 text-white"
-                onClick={() => router.push(`/editar/${tarefa.id}`)}
+                onClick={() => handleRedirecionar(tarefa)}
               >
                 Editar
               </button>
@@ -268,6 +308,39 @@ export function BlocosFrontEnd() {
           </li>
         ))}
       </ul>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2 className="py-4 text-3xl text-primaryColor">Editar Tarefa</h2>
+        <input
+          type="text"
+          name="nome"
+          value={tarefaAtual?.nome || ""}
+          onChange={handleEditChange}
+          placeholder="Nome"
+          className="my-4 border p-2 text-xl"
+        />
+        <input
+          type="number"
+          name="custo"
+          value={tarefaAtual?.custo || ""}
+          onChange={handleEditChange}
+          placeholder="Custo"
+          className="my-4 border p-2 text-xl"
+        />
+        <input
+          type="date"
+          name="dataLimite"
+          value={tarefaAtual?.dataLimite || ""}
+          onChange={handleEditChange}
+          className="my-4 border p-2 text-xl"
+        />
+        <button
+          onClick={handleSubmit}
+          className="mx-4 rounded-md bg-primaryColor p-2 text-white"
+        >
+          Submit
+        </button>
+      </Modal>
     </div>
   );
 }
