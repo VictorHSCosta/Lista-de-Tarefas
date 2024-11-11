@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { BlocosFrontEnd } from "~/app/_components/blocosFrontEnd";
 import Footer from "~/app/_components/footer";
 
