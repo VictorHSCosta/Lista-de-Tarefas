@@ -18,7 +18,12 @@ export async function GET() {
 // POST
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body: {
+      name: string;
+      preco: string;
+      data: string;
+      order: number;
+    } = await request.json();
     const { name, preco, data, order } = body;
 
     if (!name || !preco || !data || order === undefined) {
@@ -44,13 +49,16 @@ export async function POST(request: NextRequest) {
 }
 
 // PUT
-
 export async function PUT(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body: {
+      id: string;
+      name?: string;
+      preco?: string;
+      data?: string;
+      order?: string;
+    } = await request.json();
     const { id, name, preco, data, order } = body;
-
-    console.log("body", body);
 
     if (!id) {
       return NextResponse.json({ error: "ID é obrigatório" }, { status: 400 });

@@ -21,7 +21,7 @@ export function BlocosFrontEnd() {
     try {
       const response = await fetch("/api/tarefas");
       if (response.ok) {
-        const data: Tarefa[] = await response.json();
+        const data = await response.json();
         console.log("Dados recebidos da API:", data);
 
         const tarefasFormatadas = data
@@ -214,7 +214,7 @@ export function BlocosFrontEnd() {
         fetchTarefas();
       } else {
         const error = await response.json();
-        alert(error.error ?? "Erro ao deletar tarefa");
+        alert(error.error || "Erro ao deletar tarefa");
       }
     } catch (error) {
       console.error("Erro ao deletar tarefa:", error);
@@ -314,29 +314,29 @@ export function BlocosFrontEnd() {
         <input
           type="text"
           name="nome"
-          value={tarefaAtual?.nome ?? ""}
+          value={tarefaAtual?.nome || ""}
           onChange={handleEditChange}
           placeholder="Nome"
-          className="my-4 w-52 border p-2 text-xl md:w-80"
+          className="my-4 border p-2 text-xl"
         />
         <input
           type="number"
           name="custo"
-          value={tarefaAtual?.custo ?? ""}
+          value={tarefaAtual?.custo || ""}
           onChange={handleEditChange}
           placeholder="Custo"
-          className="my-4 w-52 border p-2 text-xl md:w-80"
+          className="my-4 border p-2 text-xl"
         />
         <input
           type="date"
           name="dataLimite"
-          value={tarefaAtual?.dataLimite ?? ""}
+          value={tarefaAtual?.dataLimite || ""}
           onChange={handleEditChange}
           className="my-4 border p-2 text-xl"
         />
         <button
           onClick={handleSubmit}
-          className="rounded-md bg-primaryColor p-2 text-white md:mx-4"
+          className="mx-4 rounded-md bg-primaryColor p-2 text-white"
         >
           Submit
         </button>
