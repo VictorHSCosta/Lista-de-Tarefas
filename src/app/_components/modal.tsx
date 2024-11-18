@@ -1,4 +1,3 @@
-// components/Modal.tsx
 import React from "react";
 
 type ModalProps = {
@@ -8,13 +7,24 @@ type ModalProps = {
 };
 
 export default function Modal({ isOpen, onClose, children }: ModalProps) {
+  const [isHovered, setIsHovered] = React.useState(false);
+
   if (!isOpen) return null;
 
   return (
     <div style={overlayStyles}>
       <div style={modalStyles}>
-        <button onClick={onClose} style={closeButtonStyles}>
-          Fechar
+        <button
+          onClick={onClose}
+          style={{
+            ...closeButtonStyles,
+            color: isHovered ? "#ff4d4d" : "red",
+          }}
+          aria-label="Fechar modal"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          &times;
         </button>
         {children}
       </div>
@@ -36,7 +46,8 @@ const overlayStyles: React.CSSProperties = {
 };
 
 const modalStyles: React.CSSProperties = {
-  backgroundColor: "#FFFDE4",
+  position: "relative",
+  backgroundColor: "#fafaff",
   padding: "30px",
   borderRadius: "5px",
   width: "400px",
@@ -47,4 +58,12 @@ const closeButtonStyles: React.CSSProperties = {
   position: "absolute",
   top: "10px",
   right: "10px",
+  background: "transparent",
+  border: "none",
+  fontSize: "24px",
+  color: "red",
+  cursor: "pointer",
+  lineHeight: "1",
+  padding: "0",
+  transition: "color 0.3s",
 };

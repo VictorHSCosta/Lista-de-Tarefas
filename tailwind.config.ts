@@ -10,11 +10,11 @@ export default {
         playfair: ["Playfair Display", "serif"],
       },
       colors: {
-        backgroundColor: "#FFFDE4",
+        backgroundColor: "#fafaff",
         primaryColor: "#054B0D",
         editorBg: "#A5A509",
         deleteBg: "#A50909",
-        moneyExcess: "#FCF49A",
+        moneyExcess: "#e3e3ff",
       },
     },
   },

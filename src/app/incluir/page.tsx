@@ -77,7 +77,7 @@ export default function IncluirPage() {
 
   return (
     <div className="flex h-screen flex-col justify-center bg-backgroundColor p-6 align-middle md:p-32">
-      <h1 className="my-4 py-11 text-4xl text-primaryColor">Incluir</h1>
+      <h1 className="py-11 text-4xl text-primaryColor">Incluir</h1>
       <form onSubmit={handleSubmit} className="flex flex-col text-xl">
         <label htmlFor="nome" className="py-4">
           Nome:
