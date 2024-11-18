@@ -277,32 +277,32 @@ export function BlocosFrontEnd() {
               <p>
                 Data limite: {new Date(tarefa.dataLimite).toLocaleDateString()}
               </p>
-              <p>Custo: {tarefa.custo}</p>
+              <p>Custo R$: {tarefa.custo}</p>
             </div>
             <div className="grid gap-2">
               <button
                 onClick={() => getOrdersById(tarefa.id, 0)}
-                className="rounded-md bg-yellow-400 p-1 text-white"
+                className="flex justify-center rounded-md bg-blue-500 p-2 text-white"
               >
-                UP
+                <img src="/imagens/up.svg" alt="" />
               </button>
               <button
-                className="rounded-md bg-yellow-600 p-1 text-white"
+                className="flex justify-center rounded-md bg-blue-500 p-2 text-white"
                 onClick={() => getOrdersById(tarefa.id, 1)}
               >
-                DOWN
+                <img src="/imagens/down.svg" alt="" />
               </button>
               <button
-                className="rounded-md bg-green-500 p-1 text-white"
+                className="flex justify-center rounded-md bg-green-500 p-2 text-white"
                 onClick={() => handleRedirecionar(tarefa)}
               >
-                Editar
+                <img src="/imagens/edit.svg" alt="" />
               </button>
               <button
-                className="rounded-md bg-red-600 p-1 text-white"
+                className="flex justify-center rounded-md bg-red-600 p-2 text-white"
                 onClick={() => handleDelete(tarefa.id)}
               >
-                Deletar
+                <img src="/imagens/delete.svg" alt="" />
               </button>
             </div>
           </li>
@@ -326,6 +326,8 @@ export function BlocosFrontEnd() {
           onChange={handleEditChange}
           placeholder="Custo"
           className="my-4 w-52 border p-2 text-xl md:w-80"
+          min={0}
+          step={0.01}
         />
         <input
           type="date"
