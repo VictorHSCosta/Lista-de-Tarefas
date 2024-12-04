@@ -49,12 +49,11 @@ Este projeto é uma prática de CRUD (Create, Read, Update, Delete) utilizando t
 
 ### 📸 Demonstração
 
-![Preview da Aplicação](link-para-screenshot-ou-gif)
+![Preview da Aplicação](https://link-para-demo.com](https://lista-de-tarefas-7p9u.vercel.app/))
 
 ### 🔗 Links Úteis
 
 - [Repositório no GitHub](https://github.com/seu-usuario/seu-repo)
-- [Demo Online](https://link-para-demo.com](https://lista-de-tarefas-7p9u.vercel.app/)
 
 ---
 
