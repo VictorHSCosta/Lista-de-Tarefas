@@ -1,30 +1,72 @@
-# Create T3 App
+## 📝 Lista de Tarefas
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Uma aplicação de gerenciamento de tarefas desenvolvida com **Next.js 14**, **Tailwind CSS** e **Prisma**. 🚀
 
-## What's next? How do I make an app with this?
+### 🔧 Funcionalidades
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Adicionar Tarefas** ➕  
+  Insira novas tarefas de forma rápida e intuitiva.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- **Deletar Tarefas** ❌  
+  Remova tarefas concluídas ou desnecessárias com um clique.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- **Reordenar Tarefas** 🔄  
+  Organize suas tarefas conforme a prioridade ou preferência.
 
-## Learn More
+- **Editar Tarefas** ✏️  
+  Atualize os detalhes das suas tarefas facilmente.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- **CRUD Completo** 📋  
+  Implementação completa das operações de Criar, Ler, Atualizar e Deletar.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+### 💡 Sobre o Projeto
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+Este projeto é uma prática de CRUD (Create, Read, Update, Delete) utilizando tecnologias modernas de desenvolvimento web. É ideal para aprimorar habilidades em desenvolvimento full stack, gestão de estado e integração de APIs.
 
-## How do I deploy this?
+### 🛠 Tecnologias Utilizadas
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
-# Lista-de-Tarefas
+- **Next.js 14** 🌐  
+  Framework React para aplicações server-side renderizadas.
+
+- **Tailwind CSS** 🎨  
+  Framework CSS utilitário para estilização rápida e responsiva.
+
+- **Prisma** 🛢️  
+  ORM moderno para gerenciamento de banco de dados.
+
+### 📚 Aprendizado
+
+- **Desenvolvimento Full Stack**  
+  Integração de front-end e back-end utilizando tecnologias contemporâneas.
+
+- **Gestão de Estado**  
+  Manipulação eficiente do estado da aplicação para uma melhor experiência do usuário.
+
+- **Boas Práticas de Desenvolvimento**  
+  Implementação de padrões de código limpo e documentação técnica.
+
+---
+
+### 📸 Demonstração
+
+![Preview da Aplicação](link-para-screenshot-ou-gif)
+
+### 🔗 Links Úteis
+
+- [Repositório no GitHub](https://github.com/seu-usuario/seu-repo)
+- [Demo Online](https://link-para-demo.com)
+
+---
+
+### 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+---
+
+### 📧 Contato
+
+- **Email:** [Victorhenrique8520@gmail.com](mailto:Victorhenrique8520@gmail.com)
+- **LinkedIn:** [linkedin.com/in/victorcostahs](https://www.linkedin.com/in/victorcostahs)
+
+---
